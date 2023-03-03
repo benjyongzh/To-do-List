@@ -1,5 +1,6 @@
 import projectItem from "./project";
 import * as eventManager from "./eventManager";
+import { saveNewProject } from "../index";
 
 const _projects = [];
 let _currentProject = {};
@@ -14,7 +15,7 @@ function getCurrentProject(){
 
 function createProject (projectName) {
     const project = projectItem(projectName);
-    project.projectID = _projectIDNext;
+    project.getProjectID = _projectIDNext;
     //project = project.bind(project);
     eventManager.publish('addNewProject', project);
 }
@@ -45,10 +46,11 @@ eventManager.subscribe('createProject', eventArgs => {
 
 eventManager.subscribe('addNewProject', eventArgs => {
     _projects.push(eventArgs);
+
+    //firebase
+    saveNewProject(eventArgs);
+
     projectIDIncrement();
-    /* _projects.forEach(project => {
-        console.log(project.getTitle());
-    }) */
 });
 
 eventManager.subscribe('removeProject', eventArgs => {
