@@ -9,7 +9,8 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "webpack server --open",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "local-deploy": "firebase serve --only hosting"
   },
   "keywords": [],
   "author": "Benjamin Yong",

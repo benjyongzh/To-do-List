@@ -62,6 +62,40 @@ body {
     gap: 15px;
 }
 
+.header>.sign-in {
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+    gap: 20px;
+}
+
+.header>.sign-in>.username-display,
+.header>.sign-in>.signing-in {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: 14px;
+    color: var(--color-headertext);
+    border-width: 0px;
+    padding: 0.4rem 1rem;
+}
+
+.header>.sign-in>.signing-in {
+    background-color: var(--color-text-active);
+    border-radius: 6px;
+    color: var(--color-stroke);
+    width: min(100px, 40%);
+}
+
+.header>.sign-in>.signing-in:hover {
+    background-color: var(--color-text-hover);
+}
+
+.header>.sign-in>.signing-in:active {
+    background-color: var(--color-text);
+}
+
 .header-title {
     font-size: 42px;
     display: flex;

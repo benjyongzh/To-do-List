@@ -1,8 +1,21 @@
 import * as eventManager from "./eventManager";
 import { add, format, formatDistanceToNow } from 'date-fns';
+import { signIn, signOutUser, isUserSignedIn, getUserName } from "../index";
+import { doc } from "firebase/firestore";
 
 const projects = document.querySelector('ul.project-list');
 let currentProject = {};
+
+const usernameDisplay = document.querySelector(".username-display");
+const signingInButton = document.querySelector("button.signing-in");
+signingInButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (isUserSignedIn){
+        signOutUser();
+    } else {
+        signIn();
+    };
+});
 
 const addProjectInput = document.querySelector("input#new-project-input");
 const addProjectButton = document.querySelector("button.dashboard-add-project-button");
@@ -287,6 +300,11 @@ function newButton(classname, text){
     button.textContent = text;
     return button;
 }
+
+eventManager.subscribe('authStateChanged', eventArgs => {
+    usernameDisplay.value = eventArgs.signedIn ? getUserName() : "";
+    signingInButton.value = eventArgs.signedIn ? "Sign Out" : "Sign In";
+});
 
 eventManager.subscribe('addNewProject', eventArgs => {
     addNewProjectDOM(eventArgs);
