@@ -9,8 +9,9 @@ let currentProject = {};
 const usernameDisplay = document.querySelector(".username-display");
 const signingInButton = document.querySelector("button.signing-in");
 signingInButton.addEventListener('click', (event) => {
+    console.log("button pressed");
     event.preventDefault();
-    if (isUserSignedIn){
+    if (isUserSignedIn()){
         signOutUser();
     } else {
         signIn();
