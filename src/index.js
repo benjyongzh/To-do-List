@@ -5,7 +5,7 @@ import './style.css';
 
 //firebase
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, setDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import {
   getAuth,
   onAuthStateChanged,

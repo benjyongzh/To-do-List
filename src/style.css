@@ -54,15 +54,17 @@ body {
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     justify-content: stretch;
     align-items: flex-start;
     padding: 30px 50px;
     gap: 15px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
 }
 
 .header>.sign-in {
+    grid-area: 1/2/2/-1;
     align-self: stretch;
     display: flex;
     justify-content: flex-end;
@@ -75,13 +77,15 @@ body {
     display: flex;
     justify-content: center;
     align-items:center;
-    font-size: 14px;
+    font-size: 18px;
     color: var(--color-headertext);
     border-width: 0px;
     padding: 0.4rem 1rem;
+    font-weight: 500;
 }
 
 .header>.sign-in>.signing-in {
+    font-size: 14px;
     background-color: var(--color-text-active);
     border-radius: 6px;
     color: var(--color-stroke);
@@ -98,10 +102,11 @@ body {
 }
 
 .header-title {
+    grid-area: 1/1/2/2;
     font-size: 42px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     color: var(--color-headertext);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -109,10 +114,11 @@ body {
 }
 
 .header-description {
+    grid-area: 2/1/-1/2;
     font-size: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     font-weight: 300;
 }
 
