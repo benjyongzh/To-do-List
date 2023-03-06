@@ -1,4 +1,6 @@
 import * as eventManager from "./components/eventManager";
+import * as projectManager from "./components/projectManager";
+import * as DOMManager from "./components/DOMManager";
 import './style.css';
 
 //firebase
